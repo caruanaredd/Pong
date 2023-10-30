@@ -30,6 +30,9 @@ namespace Pong
             _rigidbody.MovePosition(_rigidbody.position + Vector2.up * (_direction * speed * Time.deltaTime));
         }
 
+        /// <summary>
+        /// Player controls.
+        /// </summary>
         private void Update()
         {
             _direction = Input.GetAxisRaw("Vertical");
