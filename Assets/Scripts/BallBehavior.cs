@@ -5,8 +5,11 @@ namespace Pong
     [RequireComponent(typeof(Rigidbody2D))]
     public class BallBehavior : MonoBehaviour
     {
+        [Tooltip("The ball's starting speed.")]
+        [SerializeField] private float startSpeed = 10f;
+        
         [Tooltip("The ball speed.")]
-        [SerializeField] private float speed = 10f;
+        [SerializeField] private float speed = 20f;
 
         [Tooltip("The angle at which the ball will reflect off the racket.")]
         [SerializeField] private float maxReflectionAngle = 60f;
@@ -43,7 +46,7 @@ namespace Pong
             float axis = Mathf.Sign(Random.Range(-1, 1));
             _direction = new Vector2(axis, 0);
             
-            _rigidbody.velocity = _direction * speed;
+            _rigidbody.velocity = _direction * startSpeed;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
