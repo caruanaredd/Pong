@@ -27,7 +27,12 @@ namespace Pong
         /// </summary>
         private void FixedUpdate()
         {
-            _rigidbody.MovePosition(_rigidbody.position + Vector2.up * (_direction * speed * Time.deltaTime));
+            Vector2 updatePos = _rigidbody.position + Vector2.up * (_direction * speed * Time.deltaTime);
+            
+            // Limit the Y position of the racket.
+            updatePos.y = Mathf.Clamp(updatePos.y, -7.5f, 7.5f);
+            
+            _rigidbody.MovePosition(updatePos);
         }
 
         /// <summary>
