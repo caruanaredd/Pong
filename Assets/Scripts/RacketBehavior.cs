@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Pong
@@ -6,11 +5,17 @@ namespace Pong
     [RequireComponent(typeof(Rigidbody2D))]
     public class RacketBehavior : MonoBehaviour
     {
+        // A value to keep the rackets in view
+        private const float PlayerOffset = 1.5f;
+        
         [Tooltip("The Paddle speed.")]
         [SerializeField] private float speed = 10f;
 
+        [Tooltip("The Paddle side.")]
+        [SerializeField] private PlayerSide side;
+
         private float _direction = 0;
-        
+
         // The Rigidbody component (to move this object)
         private Rigidbody2D _rigidbody;
 
@@ -20,6 +25,20 @@ namespace Pong
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            switch (side)
+            {
+                case PlayerSide.Left:
+                    _rigidbody.position = Vector2.right * (CameraBounds.Left + PlayerOffset);
+                    break;
+                
+                case PlayerSide.Right:
+                    _rigidbody.position = Vector2.right * (CameraBounds.Right - PlayerOffset);
+                    break;
+            }
         }
 
         /// <summary>

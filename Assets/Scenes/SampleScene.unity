@@ -1186,6 +1186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8194066928650656437, guid: 22914f48e96424f4693bc4bee47aa770, type: 3}
+      propertyPath: side
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 792619760800253942, guid: 22914f48e96424f4693bc4bee47aa770, type: 3}
       propertyPath: m_Name
       value: RacketRight
