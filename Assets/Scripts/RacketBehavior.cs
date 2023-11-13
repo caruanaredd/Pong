@@ -14,6 +14,10 @@ namespace Pong
         [Tooltip("The Paddle side.")]
         [SerializeField] private PlayerSide side;
 
+        [Header("Controls")]
+        [SerializeField] private KeyCode up = KeyCode.UpArrow;
+        [SerializeField] private KeyCode down = KeyCode.DownArrow;
+        
         private float _direction = 0;
 
         // The Rigidbody component (to move this object)
@@ -59,7 +63,17 @@ namespace Pong
         /// </summary>
         private void Update()
         {
-            _direction = Input.GetAxisRaw("Vertical");
+            // Cancel the direction in case no key is pressed
+            _direction = 0;
+
+            if (Input.GetKey(up))
+            {
+                _direction = 1;
+            }
+            else if (Input.GetKey(down))
+            {
+                _direction = -1;
+            }
         }
     }
 }

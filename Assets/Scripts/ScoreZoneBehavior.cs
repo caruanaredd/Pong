@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ namespace Pong
     {
         [Tooltip("The associated text component.")]
         [SerializeField] private TextMeshProUGUI scoreTextUI;
+        
+        // The active Game Manager
+        private GameManager _gameManager;
         
         // The player's score.
         private int _score;
@@ -26,7 +30,14 @@ namespace Pong
                 scoreTextUI.text = _score.ToString();
             }
         }
-        
+
+        private void Awake()
+        {
+            // exactly like GetComponent, but much more expensive
+            // do not use outside of Awake where possible!
+            _gameManager = FindObjectOfType<GameManager>();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Ball"))
@@ -34,12 +45,8 @@ namespace Pong
                 // Increment score
                 Score++;
                 
-                // Reset ball
-                BallBehavior ball = other.GetComponent<BallBehavior>();
-                if (ball != null)
-                {
-                    ball.Launch();
-                }
+                // check the score
+                _gameManager.CheckScores();
             }
         }
     }

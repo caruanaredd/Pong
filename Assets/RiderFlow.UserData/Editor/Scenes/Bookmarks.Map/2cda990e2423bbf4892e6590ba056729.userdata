@@ -1,7 +1,6 @@
 {
   "GlobalObjectId_V1-2-2cda990e2423bbf4892e6590ba056729-440127927-0": {
     "GameObjectId": "GlobalObjectId_V1-2-2cda990e2423bbf4892e6590ba056729-440127927-0",
-    "CommentText": "Lecture Objectives:\n\n- Move ball away from center on Reset\n- Max Score\n- Game Manager",
     "AssetGUID": "2cda990e2423bbf4892e6590ba056729",
     "UniqueItemID": "GlobalObjectId_V1-2-2cda990e2423bbf4892e6590ba056729-440127927-0"
   }
