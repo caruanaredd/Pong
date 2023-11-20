@@ -29,6 +29,8 @@ namespace Pong
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            // This line was added when the "Stay" test failed.
+            _rigidbody.gravityScale = 0;
         }
 
         private void Start()
@@ -69,6 +71,7 @@ namespace Pong
             }
 
             // Cancel the direction in case no key is pressed
+            /*
             SetDirection(0);
 
             if (Input.GetKey(up))
@@ -79,6 +82,7 @@ namespace Pong
             {
                 SetDirection(-1);
             }
+            */
         }
 
         /// <summary>
