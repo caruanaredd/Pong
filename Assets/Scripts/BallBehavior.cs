@@ -29,24 +29,25 @@ namespace Pong
         }
 
         /// <summary>
-        /// Starts the game.
-        /// </summary>
-        private void Start()
-        {
-            Launch();
-        }
-
-        /// <summary>
         /// Launches the ball. 
         /// </summary>
         public void Launch()
         {
+            gameObject.SetActive(true);
             _rigidbody.MovePosition(Vector2.zero);
 
             float axis = Mathf.Sign(Random.Range(-1, 1));
             _direction = new Vector2(axis, 0);
             
             _rigidbody.velocity = _direction * startSpeed;
+        }
+
+        public void Stop()
+        {
+            // using transform because moving the rigidbody
+            // causes a collision issue with the score zones
+            transform.position = Vector2.zero;
+            gameObject.SetActive(false);
         }
 
         private void OnCollisionEnter2D(Collision2D other)

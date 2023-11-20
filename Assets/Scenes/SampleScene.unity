@@ -639,6 +639,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605782865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8194066928650656437, guid: 22914f48e96424f4693bc4bee47aa770, type: 3}
+  m_PrefabInstance: {fileID: 5373350079799100685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d03e9ca5a745d5905fefbaceb9a718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &777423569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8194066928650656437, guid: 22914f48e96424f4693bc4bee47aa770, type: 3}
+  m_PrefabInstance: {fileID: 1523625667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d03e9ca5a745d5905fefbaceb9a718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132786449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,6 +1402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1b4a400da94db28bfbc7ac5c984c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftRacket: {fileID: 777423569}
+  rightRacket: {fileID: 605782865}
   leftPlayerZone: {fileID: 510396446}
   rightPlayerZone: {fileID: 159018006}
   leftScoreUI: {fileID: 264462234}

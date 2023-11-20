@@ -63,17 +63,31 @@ namespace Pong
         /// </summary>
         private void Update()
         {
+            if (GameManager.State != GameState.Playing)
+            {
+                return;
+            }
+
             // Cancel the direction in case no key is pressed
-            _direction = 0;
+            SetDirection(0);
 
             if (Input.GetKey(up))
             {
-                _direction = 1;
+                SetDirection(1);
             }
             else if (Input.GetKey(down))
             {
-                _direction = -1;
+                SetDirection(-1);
             }
+        }
+
+        /// <summary>
+        /// Sets the player's direction.
+        /// </summary>
+        /// <param name="newDirection">The new direction value.</param>
+        public void SetDirection(int newDirection)
+        {
+            _direction = newDirection;
         }
     }
 }
