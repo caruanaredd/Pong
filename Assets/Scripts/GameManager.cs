@@ -1,23 +1,23 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Pong
 {
+    [RequireComponent(typeof(PlayerInput))]
     public class GameManager : MonoBehaviour
     {
         private const string WinnerText = "WINNER";
         private const string LoserText = "LOSER";
         
         // The game should stop when this is reached.
-        private const int MaxScore = 1;
+        private const int MaxScore = 11;
 
         /// <summary>
         /// The global game state (ie. what screen we're on).
         /// </summary>
-        public static GameState State { get; private set; } = GameState.Playing;
+        public static GameState State { get; private set; } = GameState.Menu;
 
         [Header("Player Rackets")]
         [SerializeField] private RacketBehavior leftRacket;
@@ -34,16 +34,36 @@ namespace Pong
         [Header("Ball and Rackets")]
         [SerializeField] private BallBehavior ball;
 
+        [Header("Screens")]
+        [SerializeField] private GameObject menuUI;
+        [SerializeField] private GameObject gameplayUI;
+
+        private PlayerInput _playerInput;
+
+        private void Awake()
+        {
+            _playerInput = GetComponent<PlayerInput>();
+        }
+
         private void Start()
         {
-            ChangeState(GameState.Playing);
+            ChangeState(GameState.Menu);
         }
 
         private void ChangeState(GameState newState)
         {
+            menuUI.SetActive(newState == GameState.Menu);
+            gameplayUI.SetActive(newState != GameState.Menu);
+
             switch (newState)
             {
+                case GameState.Menu:
+                    _playerInput.SwitchCurrentActionMap("Menu");
+
+                    break;
+
                 case GameState.Playing:
+                    _playerInput.SwitchCurrentActionMap("Gameplay");
                     
                     ball.Launch();
 
@@ -120,6 +140,11 @@ namespace Pong
             SetPlayerDirection(value, rightRacket);
         }
 
+        private void OnStart()
+        {
+            ChangeState(GameState.Playing);
+        }
+
         private void SetPlayerDirection(InputValue value, RacketBehavior racket)
         {
             // Racket shouldn't move if not playing the game.
@@ -140,7 +165,7 @@ namespace Pong
             yield return new WaitForSeconds(3f);
 
             ChangeState(GameState.Reset);
-            ChangeState(GameState.Playing);
+            ChangeState(GameState.Menu);
         }
     }
 }
