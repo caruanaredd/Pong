@@ -30,7 +30,7 @@ namespace Pong
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             // This line was added when the "Stay" test failed.
-            _rigidbody.gravityScale = 0;
+            _rigidbody.isKinematic = true;
         }
 
         private void Start()

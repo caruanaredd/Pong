@@ -1,0 +1,126 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "f76fbd52-bd0f-4792-8973-b3e887caf4f2",
+            "actions": [
+                {
+                    "name": "LeftPlayer",
+                    "type": "Value",
+                    "id": "c04d38a8-4d67-4966-8aa5-fae4b3aaaf38",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightPlayer",
+                    "type": "Value",
+                    "id": "1b547ddd-411b-4f6f-a72e-b300280c82ce",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WS",
+                    "id": "8d019544-3cb2-433a-9d01-86e1b90fab7f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftPlayer",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "6f409b88-332d-40db-b9ab-9f3527ec64ea",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d4d9219d-183e-4a8f-a4fb-a567dfb6f6f8",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "UpDown",
+                    "id": "0db964f2-465d-4c9d-9173-2a4f7f1f40c4",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightPlayer",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2e338096-bc97-4b0c-a040-5bd5f64cc9fc",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5ef31d71-f11d-4480-9db1-00cb6d6d577f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "27635f30-95b1-4713-9384-8ce21dfb60a7",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "319eeed1-75af-434e-af0e-05da2e387333",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "57b6ded8-281c-4fc9-b011-eaaf6dfab940",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
