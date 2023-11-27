@@ -1,6 +1,8 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Pong
 {
@@ -106,6 +108,28 @@ namespace Pong
 
             // Reset the game after a few seconds
             ChangeState(GameState.EndGame);
+        }
+
+        private void OnLeftPlayer(InputValue value)
+        {
+            SetPlayerDirection(value, leftRacket);
+        }
+
+        private void OnRightPlayer(InputValue value)
+        {
+            SetPlayerDirection(value, rightRacket);
+        }
+
+        private void SetPlayerDirection(InputValue value, RacketBehavior racket)
+        {
+            // Racket shouldn't move if not playing the game.
+            if (State != GameState.Playing)
+            {
+                return;
+            }
+
+            int direction = (int)value.Get<float>();
+            racket.SetDirection(direction);
         }
 
         /// <summary>
