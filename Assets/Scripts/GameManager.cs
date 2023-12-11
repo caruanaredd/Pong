@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace Pong
 {
     [RequireComponent(typeof(PlayerInput))]
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
         private const string WinnerText = "WINNER";
         private const string LoserText = "LOSER";
@@ -40,8 +40,9 @@ namespace Pong
 
         private PlayerInput _playerInput;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _playerInput = GetComponent<PlayerInput>();
         }
 
